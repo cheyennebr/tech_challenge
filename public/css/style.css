@@ -1,0 +1,161 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #1f1f1f;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+h1, h2 {
+    color: #ffffff;
+}
+
+main {
+    padding: 20px;
+    max-width: 800px; /* Limita a largura do conteúdo */
+    margin: 0 auto; /* Centraliza o conteúdo */
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input, select, button {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #2c2c2c;
+    border: 1px solid #444;
+    color: #ffffff;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1); /* Inverter a cor para branco */
+    cursor: pointer;
+}
+
+button {
+    background-color: #6200ee;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #3700b3;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #1f1f1f;
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+li div {
+    display: inline-block;
+    flex-grow: 1;
+}
+
+li button {
+    background-color: #6200ee;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 1em;
+    margin-left: 10px;
+    padding: 5px 10px;
+    font-weight: bold;
+}
+
+li button:hover {
+    background-color: #3700b3;
+}
+
+.editForm {
+    display: none;
+    flex-grow: 1;
+    margin-right: 10px;
+    flex-direction: row;
+}
+
+.editForm input {
+    margin-right: 10px;
+    padding: 5px;
+    font-size: 1em;
+}
+
+.editButton, .deleteButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #6200ee;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.editButton:hover, .deleteButton:hover {
+    color: #ffffff;
+    background: none;
+}
+
+@media (max-width: 600px) {
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    li button {
+        width: 100%;
+        margin-top: 10px;
+    }
+    .editForm {
+        flex-direction: column;
+    }
+}
+
+/* Estilos para notificações */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.notification.show {
+    opacity: 1;
+}
+
+.notification.success {
+    background-color: #4caf50; /* Verde */
+}
+
+.notification.error {
+    background-color: #f44336; /* Vermelho */
+}

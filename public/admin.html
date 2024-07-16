@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Sistema de Reservas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/a99f683613.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1>Admin - Sistema de Reservas</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Gerenciar Espaços</h2>
+            <form id="spaceForm">
+                <input type="text" id="spaceName" placeholder="Nome do Espaço" required>
+                <input type="number" id="capacity" placeholder="Capacidade" required>
+                <button type="submit">Adicionar Espaço</button>
+            </form>
+            <ul id="spaceList"></ul>
+        </section>
+        <button id="logoutButton">Sair</button>
+    </main>
+    <script src="js/admin.js"></script>
+</body>
+</html>

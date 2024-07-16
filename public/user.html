@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuário - Sistema de Reservas</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Usuário - Sistema de Reservas</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Reservar um Espaço</h2>
+            <form id="bookingForm">
+                <select id="spaceSelect" required>
+                    <option value="" disabled selected>Selecione um Espaço</option>
+                </select>
+                <input type="date" id="bookingDate" required>
+                <div>
+                    <label for="duration">Duração (horas):</label>
+                    <select id="duration" required>
+                        <option value="1">1 hora</option>
+                        <option value="2">2 horas</option>
+                        <option value="3">3 horas</option>
+                        <option value="4">4 horas</option>
+                        <option value="5">5 horas</option>
+                        <option value="6">6 horas</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="startTime">Hora de Início:</label>
+                    <input type="time" id="startTime" required>
+                </div>
+                <div>
+                    <label for="endTime">Hora de Término:</label>
+                    <input type="time" id="endTime" readonly required>
+                </div>
+                <button type="submit">Reservar</button>
+            </form>
+        </section>
+        <section>
+            <div id="notificationContainer"></div>
+            <h2>Suas Reservas</h2>
+            <ul id="bookingList"></ul>
+        </section>
+        <button id="logoutButton">Sair</button>
+    </main>
+    
+    <script src="js/user.js"></script>
+    <script>
+        document.getElementById('logoutButton').addEventListener('click', () => {
+            window.location.href = '/index.html';
+        });
+    </script>
+</body>
+</html>
