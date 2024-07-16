@@ -30,7 +30,7 @@ Passo a Passo para Instalação e Execução
 
 1. Pré-requisitos
 
-	•	Node.js (versão X.X.X)
+	•	Node.js (versão 22.4.1)
 	•	npm (Node Package Manager)
 	•	Git (para clonar o repositório)
 
