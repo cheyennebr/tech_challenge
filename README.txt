@@ -1,126 +1,101 @@
-### Sistema de Reservas Online - README
+Sistema de Reservas Online
 
-#### Descrição
+Este projeto é um Sistema de Reservas Online para uma empresa que disponibiliza espaços compartilhados, como salões de festas, quadras esportivas e salas de reuniões. O sistema permite que os membros da comunidade visualizem a disponibilidade dos espaços, reservem horários específicos e gerenciem suas reservas de forma eficiente através de uma interface web amigável.
 
-Este projeto é um Sistema de Reservas Online para gerenciar espaços compartilhados, como salões de festas, quadras esportivas e salas de reuniões. O sistema permite que os usuários visualizem a disponibilidade dos espaços, façam reservas e gerenciem suas reservas através de uma interface web amigável.
+Ferramentas e Tecnologias Utilizadas
 
-#### Funcionalidades
+	•	Node.js: Utilizado para construir a API backend.
+	•	Express.js: Framework para Node.js usado para criar a API.
+	•	Sequelize: ORM para gerenciar o banco de dados SQL.
+	•	SQLite: Banco de dados utilizado para armazenar informações sobre espaços, reservas e usuários.
+	•	HTML/CSS/JavaScript: Tecnologias frontend para criar a interface do usuário.
+	•	Argon2: Biblioteca para hashing de senhas.
+	•	Font Awesome: Biblioteca de ícones para melhorar a interface do usuário.
 
-- Autenticação de usuários com diferentes roles (admin e usuário comum).
-- Interface para administradores gerenciarem espaços (adicionar, editar e deletar espaços).
-- Interface para usuários visualizarem a disponibilidade dos espaços e fazerem reservas.
-- Verificação de conflitos de horários ao criar ou editar reservas.
-- Notificações de sucesso e erro ao interagir com o sistema.
+Estrutura do Projeto
 
-#### Tecnologias Utilizadas
+	1.	Backend (server.js)
+	•	Criação da API RESTful para gerenciar operações de reservas e espaços.
+	•	Implementação de autenticação de usuários.
+	•	Verificação de conflitos de horários de reserva.
+	2.	Frontend
+	•	Páginas HTML para usuários e administradores.
+	•	Formulários para criação e gerenciamento de reservas e espaços.
+	•	Estilização com CSS para uma interface moderna e responsiva.
+	3.	Banco de Dados
+	•	SQLite utilizado para armazenar dados de espaços, reservas e usuários.
+	•	Sequelize para gerenciar a comunicação com o banco de dados.
 
-- **Node.js**: Ambiente de execução JavaScript.
-- **Express.js**: Framework web para Node.js.
-- **Sequelize**: ORM para Node.js, utilizado para gerenciar o banco de dados.
-- **SQLite**: Banco de dados relacional.
-- **Argon2**: Biblioteca para hashing de senhas.
-- **HTML/CSS/JavaScript**: Tecnologias frontend para criar a interface do usuário.
-- **Font Awesome**: Biblioteca de ícones.
+Passo a Passo para Instalação e Execução
 
-#### Pré-requisitos
+1. Pré-requisitos
 
-- Node.js e npm instalados.
-- Git instalado (opcional, mas recomendado).
+	•	Node.js (versão X.X.X)
+	•	npm (Node Package Manager)
+	•	Git (para clonar o repositório)
 
-#### Passo a Passo de Instalação
+2. Clonar o Repositório
 
-1. **Clone o repositório:**
-    ```sh
-    git clone <URL_DO_REPOSITORIO>
-    cd booking-system
-    ```
+git clone https://github.com/cheyennebr/tech_challenge.git
+cd tech_challenge
 
-2. **Instale as dependências:**
-    ```sh
-    npm install
-    ```
+3. Instalar Dependências
 
-3. **Configure o banco de dados:**
-    - Sincronize o banco de dados executando o script `sync.js`:
-        ```sh
-        node sync.js
-        ```
+npm install
 
-4. **Inicie o servidor:**
-    ```sh
-    node server.js
-    ```
+4. Configuração do Banco de Dados
 
-5. **Acesse a aplicação:**
-    - Abra o navegador e vá para `http://localhost:3000`.
+node sync.js
 
-#### Estrutura do Projeto
+5. Configuração das Variáveis de Ambiente
 
-- `server.js`: Configuração do servidor e endpoints da API.
-- `models/`: Modelos do banco de dados.
-  - `space.js`: Modelo para espaços.
-  - `booking.js`: Modelo para reservas.
-  - `user.js`: Modelo para usuários.
-- `public/`: Arquivos estáticos (HTML, CSS, JS).
-  - `admin.html`: Página para administradores gerenciarem espaços.
-  - `user.html`: Página para usuários fazerem reservas.
-  - `index.html`: Página de login.
-  - `css/style.css`: Estilos CSS para a interface.
-  - `js/admin.js`: Lógica JavaScript para a página de administração.
-  - `js/user.js`: Lógica JavaScript para a página de usuários.
-  - `js/login.js`: Lógica JavaScript para a página de login.
-- `sync.js`: Script para sincronizar o banco de dados.
-- `seed.js`: Script para popular o banco de dados com dados iniciais.
+Crie um arquivo .env na raiz do projeto e configure as variáveis de ambiente necessárias. Aqui está um exemplo:
 
-#### Endpoints da API
+PORT=3000
+DATABASE_URL=sqlite:./database.sqlite
 
-- **Autenticação:**
-  - `POST /login`: Autentica um usuário.
-  - `POST /logout`: Faz logout de um usuário.
+6. Executar o Servidor
 
-- **Espaços:**
-  - `POST /spaces`: Cria um novo espaço.
-  - `GET /spaces`: Retorna todos os espaços.
-  - `GET /spaces/:id`: Retorna um espaço pelo ID.
-  - `PUT /spaces/:id`: Atualiza um espaço pelo ID.
-  - `DELETE /spaces/:id`: Deleta um espaço pelo ID.
+node server.js
 
-- **Reservas:**
-  - `POST /bookings`: Cria uma nova reserva.
-  - `GET /bookings`: Retorna todas as reservas.
-  - `PUT /bookings/:id`: Atualiza uma reserva pelo ID.
-  - `DELETE /bookings/:id`: Deleta uma reserva pelo ID.
+7. Acessar o Aplicativo
 
-#### Modelos de Banco de Dados
+Abra o navegador e acesse http://localhost:3000.
 
-- **User**:
-  - `id`: Identificador único do usuário.
-  - `username`: Nome de usuário.
-  - `password`: Senha do usuário (hash).
-  - `role`: Papel do usuário (admin ou usuário).
+Acesse com o usuário:
+user | user123 - para acessar a página do usuário
+admin | admin123 - para acessar a página do admin
 
-- **Space**:
-  - `id`: Identificador único do espaço.
-  - `name`: Nome do espaço.
-  - `capacidade`: Capacidade máxima do espaço.
+Endpoints da API
 
-- **Booking**:
-  - `id`: Identificador único da reserva.
-  - `spaceId`: Identificador do espaço reservado.
-  - `date`: Data da reserva.
-  - `startTime`: Hora de início da reserva.
-  - `endTime`: Hora de término da reserva.
+Autenticação
 
-#### Notificações
+	•	POST /login: Autenticação do usuário.
+	•	Body: { "username": "user", "password": "pass" }
+	•	Response: { "role": "admin" | "user" }
 
-- Notificações de sucesso e erro são exibidas para o usuário ao interagir com o sistema.
-- Notificações de sucesso têm fundo verde.
-- Notificações de erro têm fundo vermelho.
+Espaços
 
-#### Considerações Finais
+	•	POST /spaces: Criação de um novo espaço.
+	•	Body: { "name": "Sala de Reunião", "capacidade": 10 }
+	•	GET /spaces: Listagem de todos os espaços.
+	•	PUT /spaces/:id: Atualização de um espaço existente.
+	•	Body: { "name": "Novo Nome", "capacidade": 20 }
+	•	DELETE /spaces/:id: Exclusão de um espaço.
 
-Este sistema de reservas foi desenvolvido para ser uma solução completa e amigável para gerenciar a utilização de espaços compartilhados. A interface moderna e responsiva, aliada a um backend robusto, garante uma experiência de usuário eficiente e segura.
+Reservas
 
----
+	•	POST /bookings: Criação de uma nova reserva.
+	•	Body: { "spaceId": 1, "date": "2024-07-15", "startTime": "10:00", "endTime": "12:00" }
+	•	GET /bookings: Listagem de todas as reservas.
+	•	PUT /bookings/:id: Atualização de uma reserva existente.
+	•	Body: { "spaceId": 1, "date": "2024-07-15", "startTime": "10:00", "endTime": "12:00" }
+	•	DELETE /bookings/:id: Exclusão de uma reserva.
 
-Este README fornece todas as informações necessárias para configurar, instalar e utilizar o Sistema de Reservas Online. Para mais detalhes sobre a implementação, consulte os arquivos do projeto.
+Link para o GitHub
+
+Repositório no GitHub
+
+Considerações Finais
+
+Este projeto foi desenvolvido como parte de um desafio técnico para demonstrar habilidades em desenvolvimento full-stack. Qualquer dúvida ou sugestão, por favor, entre em contato.
